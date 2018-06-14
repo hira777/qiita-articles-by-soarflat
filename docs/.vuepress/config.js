@@ -32,6 +32,5 @@ module.exports = {
         },
       ],
     },
-    // sidebar: ['/', '/introduction', '/config', '/assets'],
   },
 };
