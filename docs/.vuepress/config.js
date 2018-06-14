@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Qiita Articles by soarflat',
   description: 'soarflatが書いたQiitaの記事',
+  base: '/qiita-articles-by-soarflat/',
   serviceWorker: true,
   themeConfig: {
     docsDir: 'docs',
