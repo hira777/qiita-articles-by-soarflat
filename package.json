@@ -1,0 +1,13 @@
+{
+  "name": "vuepress-sandbox",
+  "version": "1.0.0",
+  "author": "soarflat",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^0.10.1"
+  }
+}
