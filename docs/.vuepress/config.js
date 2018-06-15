@@ -32,6 +32,13 @@ module.exports = {
           children: ['', 'es2015-tutorial', 'async-await-tutorial'],
         },
       ],
+      '/webpack/': [
+        {
+          title: 'webpack',
+          collapsable: false,
+          children: ['', 'webpack-4-tutorial'],
+        },
+      ],
     },
   },
 };
