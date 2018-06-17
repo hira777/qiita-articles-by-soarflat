@@ -13,7 +13,7 @@
 
 ## 本記事で用いている用語
 
-### `Promise`を返す
+### Promise を返す
 
 `Promise`オブジェクトを返すこと。
 
@@ -22,7 +22,7 @@
 return new Promise((resolve, reject) => {});
 ```
 
-### `Promise`の結果を返す
+### Promise の結果を返す
 
 `Promise`の`resolve`もしくは`reject`を実行すること。
 
@@ -33,7 +33,7 @@ return new Promise((resolve, reject) => {
 });
 ```
 
-### `resolve`する
+### resolve する
 
 `Promise`の`resolve`を実行すること。
 
@@ -44,7 +44,7 @@ return new Promise((resolve, reject) => {
 });
 ```
 
-### `reject`する
+### reject する
 
 `Promise`の`reject`を実行すること。
 
@@ -55,15 +55,15 @@ return new Promise((resolve, reject) => {
 });
 ```
 
-## `async`/`await`とは
+## async/await とは
 
 `async`と`await`を利用した、非同期処理の構文のこと。
 
-### 何故`async`/`await`を利用するのか
+### 何故 async/await を利用するのか
 
 **`Promise`を利用した構文よりも、簡潔に非同期処理が書けるから。**
 
-### `async`/`await`の対応状況
+### async/await の対応状況
 
 以下は各ブラウザの`async`/`await`の対応状況。
 
@@ -72,7 +72,7 @@ return new Promise((resolve, reject) => {
 
 全てのブラウザで対応しているわけではないため、利用するなら Babel 等でトランスパイルする必要がある。
 
-## `async`とは
+## async とは
 
 非同期関数を定義する関数宣言のこと。
 以下のように関数の前に`async`を宣言することにより、非同期関数（`async function`）を定義できる。
@@ -81,7 +81,7 @@ return new Promise((resolve, reject) => {
 async function sample() {}
 ```
 
-### `async function`（`async`で宣言した関数）は何をするのか
+### async function（async で宣言した関数）は何をするのか
 
 - `async function`は呼び出されると`Promise`を返す。
 - `async function`が値を`return`した場合、`Promise`は戻り値を`resolve`する。
@@ -89,7 +89,7 @@ async function sample() {}
 
 言葉だけだとわかりづらいため、利用例を見てみる。
 
-## `async function`の利用例
+## async function の利用例
 
 以下は`async function`が`Promise`を返し、値を`resolve`、もしくは`reject`しているか確認するための利用例。
 ※このように利用することはほとんどないと思いますが、`async function`がどのような動きをしているのかを確認するために記載しております。
@@ -132,7 +132,7 @@ resolveError().then(value => {
 上記の通り、`async function`が`Promise`を返し、値を`resolve`、もしくは`reject`していることがわかった。
 上記は`async function`単体の利用例だが、`await`と併用して利用することが多く、「`async`を利用するなら`await`も必ず利用すべき」と書かれている記事もあった。
 
-## `await`とは
+## await とは
 
 `async function`内で`Promise`の結果（`resolve`、`reject`）が返されるまで待機する（処理を一時停止する）演算子のこと。
 以下のように、関数の前に`await`を指定すると、その関数の`Promise`の結果が返されるまで待機する。
@@ -146,14 +146,14 @@ async function sample() {
 }
 ```
 
-### `await`は何をするのか
+### await は何をするのか
 
 - `await`を指定した関数の`Promise`の結果が返されるまで、`async function`内の処理を一時停止する。
 - 結果が返されたら`async function`内の処理を再開する。
 
 `await`は`async function`内でないと利用できないため、`async`/`await`の利用例を見ていく。
 
-## `async`/`await`の利用例
+## async/await の利用例
 
 以下は単純な`async`/`await`の利用例。
 
@@ -208,7 +208,7 @@ sample().then(result => {
 
 ### 連続した非同期処理
 
-#### 連続した非同期処理（`Promise`構文）
+#### 連続した非同期処理（Promise 構文）
 
 ```javascript
 function sampleResolve(value) {
@@ -242,7 +242,7 @@ sample().then(v => {
 });
 ```
 
-#### 連続した非同期処理（`async`/`await`構文）
+#### 連続した非同期処理（async/await 構文）
 
 `await`を利用すれば、`then()`で処理を繋げなくても連続した非同期処理が書ける。
 
@@ -341,7 +341,7 @@ sample().then(v => {
 
 ### 並列の非同期処理
 
-#### 並列の非同期処理（`Promise`構文）
+#### 並列の非同期処理（Promise 構文）
 
 ```javascript
 function sampleResolve(value) {
@@ -377,7 +377,7 @@ sample().then(([a, b, c]) => {
 });
 ```
 
-##### 並列の非同期処理（`async`/`await`構文）
+##### 並列の非同期処理（async/await 構文）
 
 `Promise.all`にも`await`を利用できるため、以下のように記述できる。
 
@@ -439,7 +439,7 @@ sample().then(([a, b, c]) => {
 
 ### 例外処理（エラーハンドリング）
 
-#### 例外処理（エラーハンドリング）`Promise`構文）
+#### 例外処理（エラーハンドリング）Promise 構文）
 
 ```javascript
 function throwError() {
@@ -470,7 +470,7 @@ errorHandling().catch(err => {
 });
 ```
 
-#### 例外処理（エラーハンドリング）`async`/`await`構文）
+#### 例外処理（エラーハンドリング）async/await 構文）
 
 `await`を利用すれば、非同期処理の`try catch`を書ける。
 
