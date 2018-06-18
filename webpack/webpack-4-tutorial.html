@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>webpack 4 入門 | Qiita Articles by soarflat</title>
+    <meta name="description" content="soarflatが書いたQiitaの記事">
+    
+    
+    <link rel="preload" href="/qiita-articles-by-soarflat/assets/css/8.styles.62f4a966.css" as="style"><link rel="preload" href="/qiita-articles-by-soarflat/assets/js/app.51bc87ed.js" as="script"><link rel="preload" href="/qiita-articles-by-soarflat/assets/js/0.5f336dea.js" as="script"><link rel="prefetch" href="/qiita-articles-by-soarflat/assets/js/5.0af5c540.js"><link rel="prefetch" href="/qiita-articles-by-soarflat/assets/js/1.7dbcf7c9.js"><link rel="prefetch" href="/qiita-articles-by-soarflat/assets/js/2.3606f729.js"><link rel="prefetch" href="/qiita-articles-by-soarflat/assets/js/3.202c351a.js"><link rel="prefetch" href="/qiita-articles-by-soarflat/assets/js/4.de599520.js"><link rel="prefetch" href="/qiita-articles-by-soarflat/assets/js/6.58f2cd23.js"><link rel="prefetch" href="/qiita-articles-by-soarflat/assets/js/7.a2ad0b22.js">
+    <link rel="stylesheet" href="/qiita-articles-by-soarflat/assets/css/8.styles.62f4a966.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/qiita-articles-by-soarflat/" class="home-link router-link-active"><!----><span class="site-name">
+      Qiita Articles by soarflat
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/qiita-articles-by-soarflat/javascript/" class="nav-link">JavaScript</a></div><div class="nav-item"><a href="/qiita-articles-by-soarflat/webpack/" class="nav-link router-link-active">webpack</a></div><div class="nav-item"><a href="/qiita-articles-by-soarflat/html-css/" class="nav-link">HTML/CSS</a></div><div class="nav-item"><a href="/qiita-articles-by-soarflat/other/" class="nav-link">Other</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/qiita-articles-by-soarflat/javascript/" class="nav-link">JavaScript</a></div><div class="nav-item"><a href="/qiita-articles-by-soarflat/webpack/" class="nav-link router-link-active">webpack</a></div><div class="nav-item"><a href="/qiita-articles-by-soarflat/html-css/" class="nav-link">HTML/CSS</a></div><div class="nav-item"><a href="/qiita-articles-by-soarflat/other/" class="nav-link">Other</a></div><!----></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>webpack</span><!----></p><ul class="sidebar-group-items"><li><a href="/qiita-articles-by-soarflat/webpack/" class="sidebar-link">webpack</a></li><li><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html" class="active sidebar-link">webpack 4 入門</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#本記事の前提や注意点" class="sidebar-link">本記事の前提や注意点</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#webpack-とは" class="sidebar-link">webpack とは</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#モジュールバンドラとは" class="sidebar-link">モジュールバンドラとは</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#webpack（モジュールバンドラ）関連の記事でよく利用されている用語" class="sidebar-link">webpack（モジュールバンドラ）関連の記事でよく利用されている用語</a></li></ul></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#webpack-を利用してみる" class="sidebar-link">webpack を利用してみる</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#webpack-のインストール" class="sidebar-link">webpack のインストール</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#ディレクトリ構成" class="sidebar-link">ディレクトリ構成</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#webpack-のローカルインストール" class="sidebar-link">webpack のローカルインストール</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#webpack-cli-のインストール" class="sidebar-link">webpack-cli のインストール</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#各ファイルの詳細" class="sidebar-link">各ファイルの詳細</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#webpackコマンドでバンドルされたファイルを出力" class="sidebar-link">webpackコマンドでバンドルされたファイルを出力</a></li></ul></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#なぜ-webpack（モジュールバンドラ）を利用するのか" class="sidebar-link">なぜ webpack（モジュールバンドラ）を利用するのか</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#機能ごとにファイルを分割（モジュール化）する開発ができる" class="sidebar-link">機能ごとにファイルを分割（モジュール化）する開発ができる</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#自分が作成したモジュールだけではなく、外部モジュール（npm-などでインストールできるパッケージなど）も利用できる" class="sidebar-link">自分が作成したモジュールだけではなく、外部モジュール（npm などでインストールできるパッケージなど）も利用できる</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#リクエスト数を減らせる" class="sidebar-link">リクエスト数を減らせる</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#依存関係を解決したファイルを出力できる" class="sidebar-link">依存関係を解決したファイルを出力できる</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#webpack（モジュールバンドラ）の使いどころ" class="sidebar-link">webpack（モジュールバンドラ）の使いどころ</a></li></ul></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#webpack-の様々な機能、設定項目" class="sidebar-link">webpack の様々な機能、設定項目</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#watch-モード" class="sidebar-link">watch モード</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#ローダー" class="sidebar-link">ローダー</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#プラグイン" class="sidebar-link">プラグイン</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#mode-2" class="sidebar-link">mode</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#optimization-splitchunks" class="sidebar-link">optimization.splitChunks</a></li></ul></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#webpack-3-から-4-への移行の注意点" class="sidebar-link">webpack 3 から 4 への移行の注意点</a></li><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#終わり" class="sidebar-link">終わり</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial.html#parcel-に関して" class="sidebar-link">Parcel に関して</a></li></ul></li></ul></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="webpack-4-入門"><a href="#webpack-4-入門" aria-hidden="true" class="header-anchor">#</a> webpack 4 入門</h1><p>webpack に関して説明する機会があったため、それらに関してまとめました。</p><ul><li>「gulp は使ってるけど webpack はちょっと...」</li><li>「webpack.config.js の中身を見てみたが、何を書いているのか理解できなくて諦めた」</li><li>「何が便利なのかよくわからない」</li><li>「別に webpack 使わなくても実装はできるから必要なくない？」</li></ul><p>といった人達向けに書いた記事であり、</p><ul><li>webpack に関しての基本情報、利用用途、機能を理解する。</li><li>そもそもモジュールバンドラとは何か、なぜモジュールバンドラを利用するのかを理解する。</li></ul><p>ことを目的としています。</p><p>解説に利用しているコードの最終形態は GitHub 上にあります。</p><p><a href="https://github.com/hira777/webpack-4-tutorial" target="_blank" rel="noopener noreferrer">webpack-4-tutorial<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><p>webpack のバージョン 1 系と 3 系の解説、コードは以下に移動しましたので、必要であればご参照ください。</p><ul><li><a href="https://github.com/soarflat-sandbox/webpack-v1-tutorial" target="_blank" rel="noopener noreferrer">webpack-v1-tutorial<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li><a href="https://github.com/soarflat-sandbox/webpack-v3-tutorial" target="_blank" rel="noopener noreferrer">webpack-v3-tutorial<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul><h2 id="本記事の前提や注意点"><a href="#本記事の前提や注意点" aria-hidden="true" class="header-anchor">#</a> 本記事の前提や注意点</h2><ul><li>webpack のバージョンは 4 系（webpack 4）を対象にしています。</li><li>gulp を触ったことがある人向けの記事なので<code>npm install</code>など npm に関する説明は省きます。</li><li>webpack とモジュールバンドラに関しての記事なので gulp で webpack を利用する方法は記載していないです。</li><li>webpack は画像や CSS などもモジュールにしてまとめることができますが、今回は JavaScript に焦点を当てた説明をしています。</li></ul><h2 id="webpack-とは"><a href="#webpack-とは" aria-hidden="true" class="header-anchor">#</a> webpack とは</h2><p>モジュールバンドラのこと。</p><h3 id="モジュールバンドラとは"><a href="#モジュールバンドラとは" aria-hidden="true" class="header-anchor">#</a> モジュールバンドラとは</h3><p>複数のモジュールを 1 つにまとめたファイルを出力するツールのこと（簡潔に言ってしまえば）。
+※出力設定によっては複数のファイルを出力することもあります。</p><p>webpack 以外に、以下のようなモジュールバンドラが存在する。</p><ul><li>Browserify</li><li>RequireJS</li></ul><h3 id="webpack（モジュールバンドラ）関連の記事でよく利用されている用語"><a href="#webpack（モジュールバンドラ）関連の記事でよく利用されている用語" aria-hidden="true" class="header-anchor">#</a> webpack（モジュールバンドラ）関連の記事でよく利用されている用語</h3><h4 id="モジュール"><a href="#モジュール" aria-hidden="true" class="header-anchor">#</a> モジュール</h4><p>機能ごとに分割されたファイルのこと。
+そのため、webpack は「複数のファイルをまとめたファイル」を出力するツールと認識しておけばとりあえずは問題ない。</p><h4 id="バンドル"><a href="#バンドル" aria-hidden="true" class="header-anchor">#</a> バンドル</h4><p>まとめられたファイルのこと。バンドルファイルとも言う。
+そのため、以下の言葉の意味は大体同じ。</p><ul><li>「バンドルが大きい」 = 「まとめられたファイルのサイズが大きい」</li><li>「バンドルを生成する」 = 「まとめられたファイルを生成する」</li></ul><h4 id="バンドルする"><a href="#バンドルする" aria-hidden="true" class="header-anchor">#</a> バンドルする</h4><p>「まとめる」という意味で使われていることが多い。
+そのため、以下の言葉の意味は大体同じ。</p><ul><li>「モジュールをまとめる」 = 「モジュールをバンドルする」</li></ul><h4 id="ビルド"><a href="#ビルド" aria-hidden="true" class="header-anchor">#</a> ビルド</h4><p>webpack においての「ビルド」は「バンドルを出力するまでの一連の処理」という意味で使われていることが多い（気がする）。
+そのため、以下の言葉の意味は大体同じ。</p><ul><li>「ビルドする」 = 「バンドルを出力するまでの一連の処理を実行する」</li><li>「ビルドが遅い」 = 「バンドルを出力するまでの一連の処理が遅い」</li></ul><h2 id="webpack-を利用してみる"><a href="#webpack-を利用してみる" aria-hidden="true" class="header-anchor">#</a> webpack を利用してみる</h2><p>webpack を利用してモジュールをバンドルしたファイルを出力してみる。
+以下は出力までのイメージ図。</p><img src="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial/build-process.jpg" alt="build image"><h3 id="webpack-のインストール"><a href="#webpack-のインストール" aria-hidden="true" class="header-anchor">#</a> webpack のインストール</h3><p>以下のコマンドでグローバルインストールできる。</p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> webpack -g
+</code></pre></div><p>しかし、グローバルインストールは今回 webpack を利用したいディレクトリ（プロジェクト）以外の全ての環境に影響を及ぼすため、ローカルインストールをして利用した方が良い。
+ローカルインストール方法と、ローカルインストールした webpack などの package の実行方法は後述する。</p><h3 id="ディレクトリ構成"><a href="#ディレクトリ構成" aria-hidden="true" class="header-anchor">#</a> ディレクトリ構成</h3><p>今回 webpack を利用するディレクトリ構成は以下を前提とする。</p><div class="language- extra-class"><pre class="language-text"><code>.
+├── package.json
+├── public
+│   ├── index.html
+│   └── js
+│       └── bundle.js
+├── src
+│   └── js
+│       ├── app.js
+│       └── modules
+│           ├── addition-calculator.js
+│           └── tax-calculator.js
+└── webpack.config.js
+</code></pre></div><p>いくつかのパッケージをローカルインストールするため、<code>package.json</code>は以下のコマンドで生成する。</p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> init -y
+</code></pre></div><p>or</p><div class="language-bash extra-class"><pre class="language-bash"><code>yarn init -y
+</code></pre></div><h3 id="webpack-のローカルインストール"><a href="#webpack-のローカルインストール" aria-hidden="true" class="header-anchor">#</a> webpack のローカルインストール</h3><p>上記構成のルートで以下のコマンドを実行すれば webpack がローカルインストールされる。
+後述するプラグインの利用で必要なため、グローバルだけではなくローカルにもインストールしておく。</p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> webpack --save-dev
+</code></pre></div><p>or</p><div class="language-bash extra-class"><pre class="language-bash"><code>yarn add webpack --dev
+</code></pre></div><h3 id="webpack-cli-のインストール"><a href="#webpack-cli-のインストール" aria-hidden="true" class="header-anchor">#</a> webpack-cli のインストール</h3><p><code>webpack</code>コマンドで webpack を実行するために、以下のコマンドで webpack-cli をインストールする（webpack 4 から必要になった）。</p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> webpack-cli --save-dev
+</code></pre></div><p>or</p><div class="language-bash extra-class"><pre class="language-bash"><code>yarn add webpack-cli --dev
+</code></pre></div><h4 id="ローカルインストールした-package（今回は-webpack-cli）を実行するために-path-を通す"><a href="#ローカルインストールした-package（今回は-webpack-cli）を実行するために-path-を通す" aria-hidden="true" class="header-anchor">#</a> ローカルインストールした package（今回は webpack-cli）を実行するために PATH を通す</h4><p>現状のままだと、ローカルインストールが成功しても<code>webpack</code>コマンドを実行できないため、以下のように PATH を通す必要がある。</p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span>:./node_modules/.bin
+</code></pre></div><p>※「PATH を通す」が不明な方は以下をご覧ください。</p><ul><li><a href="http://qiita.com/soarflat/items/09be6ab9cd91d366bf71" target="_blank" rel="noopener noreferrer">PATH を通すとは？ (Mac OS X)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li><a href="http://qiita.com/soarflat/items/d5015bec37f8a8254380" target="_blank" rel="noopener noreferrer">PATH を通すために環境変数の設定を理解する (Mac OS X)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul><h3 id="各ファイルの詳細"><a href="#各ファイルの詳細" aria-hidden="true" class="header-anchor">#</a> 各ファイルの詳細</h3><h4 id="webpack-config-js（webpack-の設定ファイル）"><a href="#webpack-config-js（webpack-の設定ファイル）" aria-hidden="true" class="header-anchor">#</a><code>webpack.config.js</code>（webpack の設定ファイル）</h4><p>webpack を利用するためには<code>webpack.config.js</code>というファイルに設定を記述する必要がある。
+今回の設定は以下の通り。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// output.pathに絶対パスを指定する必要があるため、pathモジュールを読み込んでおく</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// モードの設定、v4系以降はmodeを指定しないと、webpack実行時に警告が出る</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  <span class="token comment">// エントリーポイントの設定</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/js/app.js'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 出力の設定</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 出力するファイル名</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 出力先のパス（v2系以降は絶対パスを指定する必要がある）</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'public/js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>各項目の詳細は以下の通り。</p><h5 id="mode"><a href="#mode" aria-hidden="true" class="header-anchor">#</a><code>mode</code></h5><p>モード（webpack 4 から追加された項目）の設定。
+モードは<code>development</code>、<code>production</code>、<code>none</code>が存在する。</p><p><code>development</code>か<code>production</code>を指定すると、様々な設定が有効になって webpack が実行される。
+例えば、<code>production</code>にすれば<code>optimization.minimizer</code>という設定が有効になり、圧縮されたファイルが出力される。</p><p>設定は上書き可能であり、上書きしたい項目は<code>webpack.config.js</code>に記述する（詳細は後述）。</p><h5 id="entry"><a href="#entry" aria-hidden="true" class="header-anchor">#</a><code>entry</code></h5><p>エントリーポイントの設定。複数設定することも可能。
+エントリーポイントとはモジュール間の依存関係の解析を開始する地点のこと。
+各モジュールを読み込んでメインの処理をする JavaScript ファイルだと認識しておけば良い。</p><h5 id="output"><a href="#output" aria-hidden="true" class="header-anchor">#</a><code>output</code></h5><p>出力の設定。
+出力するファイル名や出力先のパスを指定する。
+OS によってパスが異なることを防ぐために、出力先のパスの指定には<code>path.join()</code>を利用する。</p><h4 id="app-js（エントリーポイント）"><a href="#app-js（エントリーポイント）" aria-hidden="true" class="header-anchor">#</a><code>app.js</code>（エントリーポイント）</h4><p>2 つのアイテムの価格を合算し、消費税込みの価格を出力をするエントリーポイント。
+<code>import</code>という構文でモジュールを読み込んで利用できるため、<code>addition-calculator.js</code>と<code>tax-calculator.js</code>モジュールを<code>import</code>で読み込んで利用している。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> additionCalculator <span class="token keyword">from</span> <span class="token string">'./modules/addition-calculator'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> taxCalculator <span class="token keyword">from</span> <span class="token string">'./modules/tax-calculator'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> item1Price <span class="token operator">=</span> <span class="token number">400</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> item2Price <span class="token operator">=</span> <span class="token number">600</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> totalPrice <span class="token operator">=</span> <span class="token function">additionCalculator</span><span class="token punctuation">(</span>item1Price<span class="token punctuation">,</span> item2Price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> tax <span class="token operator">=</span> <span class="token number">1.08</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> priceIncludeTax <span class="token operator">=</span> <span class="token function">taxCalculator</span><span class="token punctuation">(</span>totalPrice<span class="token punctuation">,</span> tax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>priceIncludeTax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="addition-calculator-js（モジュール）"><a href="#addition-calculator-js（モジュール）" aria-hidden="true" class="header-anchor">#</a><code>addition-calculator.js</code>（モジュール）</h4><p>引数の<code>number1</code>と<code>number2</code>を合算して返すモジュール。
+<code>import</code>で読み込んで利用するためには、モジュールを定義する必要がある。
+そのため<code>export default</code>で<code>additionCalculator</code>をモジュールとして定義している。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">additionCalculator</span><span class="token punctuation">(</span>number1<span class="token punctuation">,</span> number2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> number1 <span class="token operator">+</span> number2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="tax-calculator-js（モジュール）"><a href="#tax-calculator-js（モジュール）" aria-hidden="true" class="header-anchor">#</a><code>tax-calculator.js</code>（モジュール）</h4><p>引数<code>price</code>と<code>tax</code>を乗算して返すモジュール。
+<code>addition-calculator.js</code>と同様に<code>export default</code>で<code>taxCalculator</code>をモジュールとして定義している。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">taxCalculator</span><span class="token punctuation">(</span>price<span class="token punctuation">,</span> tax<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>price <span class="token operator">*</span> tax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="webpackコマンドでバンドルされたファイルを出力"><a href="#webpackコマンドでバンドルされたファイルを出力" aria-hidden="true" class="header-anchor">#</a><code>webpack</code>コマンドでバンドルされたファイルを出力</h3><p>上記構成の<code>webpack.config.js</code>が存在する階層で<code>webpack</code>コマンドを実行すれば、バンドルされたファイルが出力される。
+今回の設定だと<code>bundle.js</code>という名前のファイルが<code>public/js/</code>に出力される。</p><div class="language-bash extra-class"><pre class="language-bash"><code>webpack
+
+<span class="token comment"># 以下のような実行結果が出力される。</span>
+Hash: 46c490c9c2dbab33462c
+Version: webpack 4.1.1
+Time: 77ms
+Built at: 2018-3-12 17:58:29
+    Asset      Size  Chunks             Chunk Names
+bundle.js  4.86 KiB    main  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  main
+Entrypoint main <span class="token operator">=</span> bundle.js
+<span class="token punctuation">[</span>./src/js/app.js<span class="token punctuation">]</span> 324 bytes <span class="token punctuation">{</span>main<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>./src/js/modules/addition-calculator.js<span class="token punctuation">]</span> 92 bytes <span class="token punctuation">{</span>main<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>./src/js/modules/tax-calculator.js<span class="token punctuation">]</span> 87 bytes <span class="token punctuation">{</span>main<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+</code></pre></div><p>出力された<code>bundle.js</code>の記述は以下のようになっている（一部記述省略）。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/******/</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">/***/</span> <span class="token string">'./src/js/app.js'</span><span class="token punctuation">:</span>
+    <span class="token comment">/*!***********************!*\
+  !*** ./src/js/app.js ***!
+  \***********************/</span>
+    <span class="token comment">/*! no exports provided */</span>
+    <span class="token comment">/***/</span> <span class="token keyword">function</span><span class="token punctuation">(</span>module<span class="token punctuation">,</span> __webpack_exports__<span class="token punctuation">,</span> __webpack_require__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token string">'use strict'</span><span class="token punctuation">;</span>
+      <span class="token function">eval</span><span class="token punctuation">(</span>
+        <span class="token string">'__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_addition_calculator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/addition-calculator */ &quot;./src/js/modules/addition-calculator.js&quot;);\n/* harmony import */ var _modules_tax_calculator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/tax-calculator */ &quot;./src/js/modules/tax-calculator.js&quot;);\n\n\n\nvar item1Price = 400;\nvar item2Price = 600;\nvar totalPrice = Object(_modules_addition_calculator__WEBPACK_IMPORTED_MODULE_0__[&quot;default&quot;])(item1Price, item2Price);\nvar tax = 1.08;\nvar priceIncludeTax = Object(_modules_tax_calculator__WEBPACK_IMPORTED_MODULE_1__[&quot;default&quot;])(totalPrice, tax);\n\nconsole.log(priceIncludeTax);\n\n//# sourceURL=webpack:///./src/js/app.js?'</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token comment">/***/</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">/***/</span> <span class="token string">'./src/js/modules/addition-calculator.js'</span><span class="token punctuation">:</span>
+    <span class="token comment">/*!***********************************************!*\
+  !*** ./src/js/modules/addition-calculator.js ***!
+  \***********************************************/</span>
+    <span class="token comment">/*! exports provided: default */</span>
+    <span class="token comment">/***/</span> <span class="token keyword">function</span><span class="token punctuation">(</span>module<span class="token punctuation">,</span> __webpack_exports__<span class="token punctuation">,</span> __webpack_require__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token string">'use strict'</span><span class="token punctuation">;</span>
+      <span class="token function">eval</span><span class="token punctuation">(</span>
+        <span class="token string">'__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;default&quot;, function() { return additionCalculator; });\nfunction additionCalculator(number1 ,number2) {\n  return number1 + number2;\n}\n\n//# sourceURL=webpack:///./src/js/modules/addition-calculator.js?'</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token comment">/***/</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">/***/</span> <span class="token string">'./src/js/modules/tax-calculator.js'</span><span class="token punctuation">:</span>
+    <span class="token comment">/*!******************************************!*\
+  !*** ./src/js/modules/tax-calculator.js ***!
+  \******************************************/</span>
+    <span class="token comment">/*! exports provided: default */</span>
+    <span class="token comment">/***/</span> <span class="token keyword">function</span><span class="token punctuation">(</span>module<span class="token punctuation">,</span> __webpack_exports__<span class="token punctuation">,</span> __webpack_require__<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token string">'use strict'</span><span class="token punctuation">;</span>
+      <span class="token function">eval</span><span class="token punctuation">(</span>
+        <span class="token string">'__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, &quot;default&quot;, function() { return taxCalculator; });\nfunction taxCalculator(price ,tax) {\n  return Math.round(price * tax);\n}\n\n//# sourceURL=webpack:///./src/js/modules/tax-calculator.js?'</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token comment">/***/</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">/******/</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>モジュールがバンドルされていることがわかる。
+また、以下のような<code>bundle.js</code>を読み込んでいる html ファイルをブラウザで開き、コンソールを確認してみると正常に動作していることがわかる。</p><div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>webpack tutorial<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>js/bundle.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><img src="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial/bundle.jpg" alt="bundle"><h4 id="モジュールがバンドルされたファイルを出力できたが"><a href="#モジュールがバンドルされたファイルを出力できたが" aria-hidden="true" class="header-anchor">#</a> モジュールがバンドルされたファイルを出力できたが</h4><p>これだけだと webpack（モジュールバンドラ）の何が良いのかがわからないため、メリットやなぜ利用するのかを説明していく。</p><h2 id="なぜ-webpack（モジュールバンドラ）を利用するのか"><a href="#なぜ-webpack（モジュールバンドラ）を利用するのか" aria-hidden="true" class="header-anchor">#</a> なぜ webpack（モジュールバンドラ）を利用するのか</h2><ul><li>機能ごとにファイルを分割（モジュール化）する開発ができるから</li><li>自分が作成したモジュールだけではなく、外部モジュール（npm などでインストールできるパッケージなど）も利用できるから</li><li>リクエスト数を減らせるから</li><li>依存関係を解決したファイルを出力できるから</li></ul><p>などモジュールの開発、再利用、バンドルなどが魅力的だから。</p><h3 id="機能ごとにファイルを分割（モジュール化）する開発ができる"><a href="#機能ごとにファイルを分割（モジュール化）する開発ができる" aria-hidden="true" class="header-anchor">#</a> 機能ごとにファイルを分割（モジュール化）する開発ができる</h3><p>ファイルを分割（モジュール化）する開発には以下のようなメリットがある。</p><ul><li>コードが見やすくなる（可読性の向上）</li><li>開発作業の分担やテストがし易くなる</li><li>名前空間を生成できる（変数の競合やグローバル汚染を防ぐ）</li><li>モジュールの保守性を高められる</li><li>モジュールの再利用性を高められる</li></ul><h4 id="コードが見やすくなる（可読性の向上）"><a href="#コードが見やすくなる（可読性の向上）" aria-hidden="true" class="header-anchor">#</a> コードが見やすくなる（可読性の向上）</h4><p>1 つのファイルに複数の機能が書かれたコードよりも、1 つのファイルに 1 つの機能が書かれたコードの方が見やすい。</p><h4 id="開発作業の分担やテストが容易になる"><a href="#開発作業の分担やテストが容易になる" aria-hidden="true" class="header-anchor">#</a> 開発作業の分担やテストが容易になる</h4><p>1 つのファイルに複数の機能が集中している場合、機能毎に担当を分けるなどの作業分担がし辛いし、テストもし辛い。
+機能ごとにファイルを分割していれば、作業分担やテストがし易い。</p><h4 id="名前空間を生成できる（変数の競合やグローバル汚染を防ぐ）"><a href="#名前空間を生成できる（変数の競合やグローバル汚染を防ぐ）" aria-hidden="true" class="header-anchor">#</a> 名前空間を生成できる（変数の競合やグローバル汚染を防ぐ）</h4><p>モジュール毎に名前空間を割り当てれば、変数の競合やグローバル汚染を防げる。</p><h4 id="モジュールの保守性を高められる"><a href="#モジュールの保守性を高められる" aria-hidden="true" class="header-anchor">#</a> モジュールの保守性を高められる</h4><p>モジュールは他のコードとの依存性が少なくあるべきなので、しっかり設計をすれば変更や拡張がしやすくなる。
+ファイルを分割すればモジュールになるわけではなく、あるモジュールを修正するために他のコードに大きな影響を与える場合、それはモジュールとは言えないため注意。</p><h4 id="モジュールの再利用性を高められる"><a href="#モジュールの再利用性を高められる" aria-hidden="true" class="header-anchor">#</a> モジュールの再利用性を高められる</h4><p>汎用性の高いモジュールを開発すれば再利用できて便利。
+コードをコピペで再利用する場合だと、修正時にコピペしたファイルを全て修正する必要があるが、モジュールとしてファイルを分割しておけば 1 つのファイルを修正するだけで済む。</p><h3 id="自分が作成したモジュールだけではなく、外部モジュール（npm-などでインストールできるパッケージなど）も利用できる"><a href="#自分が作成したモジュールだけではなく、外部モジュール（npm-などでインストールできるパッケージなど）も利用できる" aria-hidden="true" class="header-anchor">#</a> 自分が作成したモジュールだけではなく、外部モジュール（npm などでインストールできるパッケージなど）も利用できる</h3><p>試しに外部モジュールの jQuery を利用してみる。まずは<code>jquery</code>をローカルインストールする。</p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> jquery --save
+</code></pre></div><p>or</p><div class="language-bash extra-class"><pre class="language-bash"><code>yarn add jquery
+</code></pre></div><p>インストールしたパッケージは他のモジュール同様、<code>import</code>で読み込みモジュールとして利用できる。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> $ <span class="token keyword">from</span> <span class="token string">'jquery'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> additionCalculator <span class="token keyword">from</span> <span class="token string">'./modules/addition-calculator'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> taxCalculator <span class="token keyword">from</span> <span class="token string">'./modules/tax-calculator'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> item1Price <span class="token operator">=</span> <span class="token number">400</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> item2Price <span class="token operator">=</span> <span class="token number">600</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> totalPrice <span class="token operator">=</span> <span class="token function">additionCalculator</span><span class="token punctuation">(</span>item1Price<span class="token punctuation">,</span> item2Price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> tax <span class="token operator">=</span> <span class="token number">1.08</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> priceIncludeTax <span class="token operator">=</span> <span class="token function">taxCalculator</span><span class="token punctuation">(</span>totalPrice<span class="token punctuation">,</span> tax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>priceIncludeTax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span>priceIncludeTax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>上記の状態で<code>webpack</code>コマンドを実行すると<code>jquery</code>もバンドルされたファイルが出力される。</p><div class="language-bash extra-class"><pre class="language-bash"><code>webpack
+
+<span class="token comment"># 以下のような実行結果が出力される。</span>
+Hash: 0929c9cb73f6110bfb50
+Version: webpack 4.1.1
+Time: 245ms
+Built at: 2018-3-12 18:21:28
+    Asset     Size  Chunks                    Chunk Names
+bundle.js  302 KiB    main  <span class="token punctuation">[</span>emitted<span class="token punctuation">]</span>  <span class="token punctuation">[</span>big<span class="token punctuation">]</span>  main
+Entrypoint main <span class="token punctuation">[</span>big<span class="token punctuation">]</span> <span class="token operator">=</span> bundle.js
+<span class="token punctuation">[</span>./src/js/app.js<span class="token punctuation">]</span> 381 bytes <span class="token punctuation">{</span>main<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>./src/js/modules/addition-calculator.js<span class="token punctuation">]</span> 92 bytes <span class="token punctuation">{</span>main<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+<span class="token punctuation">[</span>./src/js/modules/tax-calculator.js<span class="token punctuation">]</span> 87 bytes <span class="token punctuation">{</span>main<span class="token punctuation">}</span> <span class="token punctuation">[</span>built<span class="token punctuation">]</span>
+    + 1 hidden module
+</code></pre></div><p><code>bundle.js</code>を読み込んでいる html ファイルをブラウザで確認してみると、jQuery もバンドルされて正常に動作していることがわかる。</p><img src="/qiita-articles-by-soarflat/webpack/webpack-4-tutorial/bundle2.jpg" alt="bundle2"><p>外部モジュールを利用できたが、</p><ul><li>「わざわざファイルをまとめずに、script タグで jQuery 読み込めば良いのでは？」</li></ul><p>と思った方は多々いると思うのし、確かにちょっとしたコードを書く程度ならそちらの方が楽。
+しかし、後述するメリットを考慮すると jQuery のような外部モジュールもバンドルした方が良い時もある。</p><h3 id="リクエスト数を減らせる"><a href="#リクエスト数を減らせる" aria-hidden="true" class="header-anchor">#</a> リクエスト数を減らせる</h3><p>以下は jQuery を読み込み、jQuery に依存している<code>app.js</code>を読み込んでいる html ファイルだと想定する。</p><div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>webpack tutorial<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>https://code.jquery.com/jquery-3.1.1.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>js/app.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>上記のようなファイルは以下の懸念点がある。</p><ul><li>現在は 1 つのライブラリだけ読み込んでいるが、必要なライブラリが増えてリクエスト数が増える可能性がある（リクエスト数の増加はパフォーマンス上良くない）。</li></ul><p>webpack を利用すればファイルをバンドルできるため、リクエスト数を減らせる。</p><div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>webpack tutorial<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!-- jQueryもバンドルされたファイル --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>js/bundle.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>しかし、全てのファイルを 1 つにバンドルする場合、以下の懸念点が考えられる。</p><ul><li>ファイルサイズが非常に大きくなり読み込み時間がかかる。</li></ul><p>バンドルしたファイルを分割して出力したり、それらのファイルを非同期読み込みするなどの機能があるのでそれらを利用する。</p><ul><li>キャッシュを活用できない。</li></ul><p>ライブラリは頻繁に変更しないファイルのため、キャッシュを活用すべきだが、全てのファイルを 1 つにバンドルするとそれができない。
+そのため、頻繁に変更するファイルのバンドルと、ライブラリ群をまとめたバンドルは別にして出力する（<code>optimization.splitChunks</code>という設定を有効にする必要がある）。</p><h3 id="依存関係を解決したファイルを出力できる"><a href="#依存関係を解決したファイルを出力できる" aria-hidden="true" class="header-anchor">#</a> 依存関係を解決したファイルを出力できる</h3><p>以下は jQuery を読み込み、jQuery に依存している<code>app.js</code>を読み込んでいる html ファイルだと想定する。
+<code>app.js</code>は jQuery に依存しているため、jQuery を読み込む前に<code>app.js</code>を読み込むと動かない。</p><div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>webpack tutorial<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!-- app.jsはjQueryに依存しているため、jQueryを読み込んだ後に読み込む必要がある。 --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>https://code.jquery.com/jquery-3.1.1.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>js/app.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>上記のようなファイルは以下の懸念点がある。</p><ul><li>依存しているライブラリが 1 つだけなら良いが、依存が増えれば増えるほど依存関係がわかり辛くなる。</li><li>それぞれのファイルの依存関係をすぐに理解できるのは作業をした人間のみであり、別の作業者が依存関係をすぐに理解するのは困難。</li><li>依存関係が複雑になればなるほど、迂闊にスクリプトの読み込み順を変更したり本来不要なファイルを削除できなくなる。</li></ul><p>webpack を利用すれば依存関係を解決してファイルをバンドルするため、スクリプトの順番を考慮する必要はなくなり依存関係に悩まされる可能性は低くなる。</p><div class="language-html extra-class"><pre class="language-html"><code><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>webpack tutorial<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!-- 依存関係を解決してまとめられたファイル --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>js/bundle.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>また、依存するパッケージ（モジュール）を<code>package.json</code>に明記し、それらの利用を促せば以下のような事態に陥る可能性は低くなる。</p><ul><li>理由もなく作業者によって利用するライブラリのバージョンが異なる。</li><li>1 ページに同じライブラリが複数読み込まれてしまっている。</li><li>同じライブラリが様々なディレクトリに存在する。誰がどこで何のために利用しているのかわからないため迂闊に消せない。</li></ul><h3 id="webpack（モジュールバンドラ）の使いどころ"><a href="#webpack（モジュールバンドラ）の使いどころ" aria-hidden="true" class="header-anchor">#</a> webpack（モジュールバンドラ）の使いどころ</h3><p>上記のメリットや機能が必要に感じたり、魅了に感じる状況であれば利用すべき。
+逆にすぐに捨てるコードや 2〜30 行程度のコンパクトなコードを書く程度なら必要ないと思う。</p><p>webpack は非常に多くの機能が存在し、細かい設定ができるため<code>webpack.config.js</code>の内容を理解せずにコピペして利用するはやめた方が良い。
+利用用途に合わせて<code>webpack.config.js</code>を用意するべき。</p><p>とは言え、全ての機能を完全に理解するのは困難なので、頻繁に利用しそうな機能や、webpack 4 から追加された<code>mode</code>などの設定項目を紹介をしていく。</p><h2 id="webpack-の様々な機能、設定項目"><a href="#webpack-の様々な機能、設定項目" aria-hidden="true" class="header-anchor">#</a> webpack の様々な機能、設定項目</h2><h3 id="watch-モード"><a href="#watch-モード" aria-hidden="true" class="header-anchor">#</a> watch モード</h3><p>ファイルを監視して変更があったらビルドを再実行する機能のこと。
+watch モードでは基本的にキャッシュが有効になるため、ビルド時間が短くなる。
+オプションを指定して<code>webpack</code>コマンドを実行するか、<code>webpack.config.js</code>に設定を記述することで利用できる。</p><div class="language-bash extra-class"><pre class="language-bash"><code>webpack --watch
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// watchモードを有効にする</span>
+  watch<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./app.js'</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'public/js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="ローダー"><a href="#ローダー" aria-hidden="true" class="header-anchor">#</a> ローダー</h3><p>画像や CSS などの JavaScript 以外のファイルを JavaScript で扱えるように変換したり、バンドルする前にモジュールに対して実行する機能のこと。
+TypeScript を JavaScript に変換、画像を DataURL に変換、コードをチェックするなど、ローダーによって機能は様々。</p><h4 id="babel-loader"><a href="#babel-loader" aria-hidden="true" class="header-anchor">#</a><code>babel-loader</code></h4><p>ES2015（ES6）のコードを ES5 のコードに変換するローダー。</p><p>ローダーを利用するためにはそれに応じたパッケージをインストールしておく必要がある。
+<code>babel-loader</code>を利用するために以下のパッケージをインストールする。</p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> babel-loader babel-core babel-preset-env --save-dev
+</code></pre></div><p>or</p><div class="language-bash extra-class"><pre class="language-bash"><code>yarn add babel-loader babel-core babel-preset-env --dev
+</code></pre></div><p>インストール後、<code>webpack.config.js</code>に<code>babel-loader</code>の設定を追加する。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// output.pathに絶対パスを指定する必要があるため、pathモジュールを読み込んでおく</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// モードの設定、v4系以降はmodeを指定しないと、webpack実行時に警告が出る</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  <span class="token comment">// エントリーポイントの設定</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/js/app.js'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 出力の設定</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 出力するファイル名</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 出力先のパス（v2系以降は絶対パスを指定する必要がある）</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'public/js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ローダーの設定</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token comment">// ローダーの処理対象ファイル</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+        <span class="token comment">// ローダーの処理対象から外すディレクトリ</span>
+        exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token comment">// 利用するローダー</span>
+            loader<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+            <span class="token comment">// ローダーのオプション</span>
+            <span class="token comment">// 今回はbabel-loaderを利用しているため</span>
+            <span class="token comment">// babelのオプションを指定しているという認識で問題ない</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'env'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> modules<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>上記の設定で<code>webpack</code>コマンドを実行すれば、以下のような ES2015（ES6）のコードをどのブラウザでも動くように変換してくれる。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> $ <span class="token keyword">from</span> <span class="token string">'jquery'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> additionCalculator <span class="token keyword">from</span> <span class="token string">'./modules/addition-calculator'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> taxCalculator <span class="token keyword">from</span> <span class="token string">'./modules/tax-calculator'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> item1Price <span class="token operator">=</span> <span class="token number">400</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> item2Price <span class="token operator">=</span> <span class="token number">600</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> totalPrice <span class="token operator">=</span> <span class="token function">additionCalculator</span><span class="token punctuation">(</span>item1Price<span class="token punctuation">,</span> item2Price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> tax <span class="token operator">=</span> <span class="token number">1.08</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> priceIncludeTax <span class="token operator">=</span> <span class="token function">taxCalculator</span><span class="token punctuation">(</span>totalPrice<span class="token punctuation">,</span> tax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>priceIncludeTax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span>priceIncludeTax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="eslint-loader"><a href="#eslint-loader" aria-hidden="true" class="header-anchor">#</a><code>eslint-loader</code></h4><p>JavaScript のコードを検証するローダー。</p><p><code>eslint-loader</code>を利用するために以下のパッケージをインストールする。</p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> eslint eslint-loader --save-dev
+</code></pre></div><p>or</p><div class="language-bash extra-class"><pre class="language-bash"><code>yarn add eslint eslint-loader --dev
+</code></pre></div><p>インストール後、<code>webpack.config.js</code>に<code>eslint-loader</code>の設定とプラグインの記述を追加する。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// プラグインを利用するためにwebpackを読み込んでおく</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// output.pathに絶対パスを指定する必要があるため、pathモジュールを読み込んでおく</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// モードの設定、v4系以降はmodeを指定しないと、webpack実行時に警告が出る</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  <span class="token comment">// エントリーポイントの設定</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/js/app.js'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 出力の設定</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 出力するファイル名</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 出力先のパス（v2系以降は絶対パスを指定する必要がある）</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'public/js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ローダーの設定</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token comment">// ローダーの処理対象ファイル</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+        <span class="token comment">// ローダーの処理対象から外すディレクトリ</span>
+        exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token comment">// 利用するローダー</span>
+            loader<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+            <span class="token comment">// ローダーのオプション</span>
+            <span class="token comment">// 今回はbabel-loaderを利用しているため</span>
+            <span class="token comment">// babelのオプションを指定しているという認識で問題ない</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'env'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> modules<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token comment">// enforce: 'pre'を指定することによって</span>
+        <span class="token comment">// enforce: 'pre'がついていないローダーより早く処理が実行される</span>
+        <span class="token comment">// 今回はbabel-loaderで変換する前にコードを検証したいため、指定が必要</span>
+        enforce<span class="token punctuation">:</span> <span class="token string">'pre'</span><span class="token punctuation">,</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+        exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        loader<span class="token punctuation">:</span> <span class="token string">'eslint-loader'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>babel-loader</code>の設定記述とほとんど変わりないが、<code>babel-loader</code>で変換する前にコードを検証したいため<code>enforce: 'pre'</code>を指定する。</p><p>また、<code>eslint</code>の設定ファイルである<code>.eslintrc</code>も追加する。
+※webpack の解説記事のため、設定項目の詳細は割愛します。</p><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;extends&quot;</span><span class="token operator">:</span> <span class="token string">&quot;eslint:recommended&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;parserOptions&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;ecmaVersion&quot;</span><span class="token operator">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sourceType&quot;</span><span class="token operator">:</span> <span class="token string">&quot;module&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;env&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;browser&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>.eslintrc</code>は<code>package.json</code>と同じ階層に追加するため、ディレクトリ構成は以下の通り。</p><div class="language- extra-class"><pre class="language-text"><code>.
+├── .eslintrc
+├── package.json
+├── public
+│   ├── index.html
+│   └── js
+│       └── bundle.js
+├── src
+│   └── js
+│       ├── app.js
+│       └── modules
+│           ├── addition-calculator.js
+│           └── tax-calculator.js
+└── webpack.config.js
+</code></pre></div><p>上記の設定で<code>webpack</code>コマンドを実行すれば、以下のように検証結果が出力される。</p><div class="language-bash extra-class"><pre class="language-bash"><code>ERROR <span class="token keyword">in</span> ./src/js/app.js
+
+/Users/mac/GitHub/webpack-v4-tutorial/src/js/app.js
+  11:1  error  Unexpected console statement  no-console
+</code></pre></div><h4 id="ローダーを設定する書き方は色々ある"><a href="#ローダーを設定する書き方は色々ある" aria-hidden="true" class="header-anchor">#</a> ローダーを設定する書き方は色々ある</h4><p>ローダーを設定する書き方は色々あり、上記の<code>babel-loader</code>の設定は以下のようにも書ける。</p><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+      exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+      use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          loader<span class="token punctuation">:</span> <span class="token string">'babel-loader?{ &quot;presets&quot;:[[&quot;env&quot;, {&quot;modules&quot;: false}]] }'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>以下のように<code>use</code>を省略して書くこともできる。</p><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+      exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+      loader<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+      options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'env'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> modules<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>以下のように<code>use</code>を利用すると、ローダーを複数指定すること等が可能なため、状況に応じて使い分ける。</p><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+      exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+      use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          loader<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+          options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'env'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> modules<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          loader<span class="token punctuation">:</span> <span class="token string">'jshint-loader'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="プラグイン"><a href="#プラグイン" aria-hidden="true" class="header-anchor">#</a> プラグイン</h3><p>モジュールのバンドル時に実行される様々な処理のこと。</p><h4 id="provideplugin"><a href="#provideplugin" aria-hidden="true" class="header-anchor">#</a><code>ProvidePlugin</code></h4><p>指定したモジュールをすべてのファイル（モジュール）の変数として利用可能にするプラグイン。
+利用可能にしたモジュールは<code>import</code>などで読み込む必要がなくなる。
+以下は<code>webpack.config.js</code>に<code>ProvidePlugin</code>を追加したもの。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// プラグインを利用するためにwebpackを読み込んでおく</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// output.pathに絶対パスを指定する必要があるため、pathモジュールを読み込んでおく</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// モードの設定、v4系以降はmodeを指定しないと、webpack実行時に警告が出る</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  <span class="token comment">// エントリーポイントの設定</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/js/app.js'</span><span class="token punctuation">,</span>
+  <span class="token comment">// 出力の設定</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 出力するファイル名</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+    <span class="token comment">// 出力先のパス（v2系以降は絶対パスを指定する必要がある）</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'public/js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ローダーの設定</span>
+  module<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    rules<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        <span class="token comment">// ローダーの処理対象ファイル</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+        <span class="token comment">// ローダーの処理対象から外すディレクトリ</span>
+        exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        use<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span>
+            <span class="token comment">// 利用するローダー</span>
+            loader<span class="token punctuation">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+            <span class="token comment">// ローダーのオプション</span>
+            options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+              presets<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'env'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> modules<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        <span class="token comment">// enforce: 'pre'を指定することによって</span>
+        <span class="token comment">// enforce: 'pre'がついていないローダーより早く処理が実行される</span>
+        <span class="token comment">// 今回はbabel-loaderで変換する前にコードを検証したいため、指定が必要</span>
+        enforce<span class="token punctuation">:</span> <span class="token string">'pre'</span><span class="token punctuation">,</span>
+        test<span class="token punctuation">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+        exclude<span class="token punctuation">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        loader<span class="token punctuation">:</span> <span class="token string">'eslint-loader'</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// プラグインの設定</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token keyword">new</span> <span class="token class-name">webpack<span class="token punctuation">.</span>ProvidePlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      $<span class="token punctuation">:</span> <span class="token string">'jquery'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>jquery</code>を全てのモジュール上で変数<code>$</code>として利用できるようにしたため、<code>app.js</code>の<code>jquery</code>を読み込む記述を消しても正常に動作する。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> additionCalculator <span class="token keyword">from</span> <span class="token string">'./modules/addition-calculator'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> taxCalculator <span class="token keyword">from</span> <span class="token string">'./modules/tax-calculator'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> item1Price <span class="token operator">=</span> <span class="token number">400</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> item2Price <span class="token operator">=</span> <span class="token number">600</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> totalPrice <span class="token operator">=</span> <span class="token function">additionCalculator</span><span class="token punctuation">(</span>item1Price<span class="token punctuation">,</span> item2Price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> tax <span class="token operator">=</span> <span class="token number">1.08</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> priceIncludeTax <span class="token operator">=</span> <span class="token function">taxCalculator</span><span class="token punctuation">(</span>totalPrice<span class="token punctuation">,</span> tax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>priceIncludeTax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'body'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span>priceIncludeTax<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="mode-2"><a href="#mode-2" aria-hidden="true" class="header-anchor">#</a><code>mode</code></h3><p>webpack 4 から新しく追加された設定項目。
+<code>mode</code>には<code>development</code>、<code>production</code>、<code>none</code>が存在し、いずれかを指定しないと webpack 実行時に警告がでる。</p><p><code>development</code>か<code>production</code>を指定すると様々な設定が有効になり、webpack が実行される。</p><p>オプションを指定して<code>webpack</code>コマンドを実行するか、<code>webpack.config.js</code>に設定を記述することで<code>mode</code>を指定できる。</p><div class="language-bash extra-class"><pre class="language-bash"><code>webpack --mode development
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./app.js'</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'public/js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h4 id="development"><a href="#development" aria-hidden="true" class="header-anchor">#</a><code>development</code></h4><p>エラー表示、デバッグしやすいファイルの出力、再ビルド時間の短縮（キャッシュ有効）などの設定が有効になる。</p><p>開発時のファイルの出力にはこちらのモードを利用する。</p><h4 id="production"><a href="#production" aria-hidden="true" class="header-anchor">#</a><code>production</code></h4><p>ファイルの圧縮や、モジュールの最適化などの設定が有効になる。</p><p>本番時のファイルの出力にはこちらのモードを利用する。</p><h4 id="npm-scriptsで-webpack-をそれぞれのモードで実行する"><a href="#npm-scriptsで-webpack-をそれぞれのモードで実行する" aria-hidden="true" class="header-anchor">#</a><code>npm scripts</code>で webpack をそれぞれのモードで実行する</h4><p><code>mode</code>を<code>webpack.config.js</code>に記述してしまうと、モードを変更する度に記述を変更する必要がある。</p><p>それを防ぐために<code>npm scripts</code>で webpack を実行できるようにする。そのために<code>package.json</code>に以下の記述を追加する。</p><div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;webpack --mode development --watch&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;webpack --mode production&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>記述後の<code>package.json</code>は以下のようになる。</p><div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;webpack-4-tutorial&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;version&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1.0.0&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;webpack 4 quick start&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;author&quot;</span><span class="token operator">:</span> <span class="token string">&quot;soraflat&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;webpack --mode development --watch&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;webpack --mode production&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;devDependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;babel-core&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^6.26.3&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;babel-loader&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^7.1.4&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;babel-preset-env&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^1.7.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;eslint&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^4.19.1&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;eslint-loader&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^2.0.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;webpack&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^4.8.3&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;webpack-cli&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^2.1.3&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;dependencies&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;jquery&quot;</span><span class="token operator">:</span> <span class="token string">&quot;^3.2.1&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;license&quot;</span><span class="token operator">:</span> <span class="token string">&quot;MIT&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>上記の記述で以下のコマンドを実行するとそれぞれのモードで webpack が実行される。</p><p><strong>以下のコマンドで<code>webpack --mode development --watch</code>が実行される。</strong></p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> run dev
+</code></pre></div><p>or</p><div class="language-bash extra-class"><pre class="language-bash"><code>yarn run dev
+</code></pre></div><p><strong>以下のコマンドで<code>webpack --mode production</code>が実行される。</strong></p><div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> run build
+</code></pre></div><p>or</p><div class="language-bash extra-class"><pre class="language-bash"><code>yarn run build
+</code></pre></div><p><code>eslint-loader</code>などを利用している場合、エラーを直さないとビルドできないため注意。</p><h4 id="設定の上書き"><a href="#設定の上書き" aria-hidden="true" class="header-anchor">#</a> 設定の上書き</h4><p><code>webpack.config.js</code>に設定を追記すれば、それぞれのモードで有効になる設定を上書きできる。</p><h5 id="developmentの上書き例"><a href="#developmentの上書き例" aria-hidden="true" class="header-anchor">#</a><code>development</code>の上書き例</h5><p>以下は<code>development</code>モードで有効になる<code>devtool: 'eval'</code>を上書きした例。</p><div class="language-js extra-class"><pre class="language-js"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'development'</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/js/app.js'</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> <span class="token string">'./public/js'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// developmentモードで有効になるdevtool: 'eval'を上書き</span>
+  devtool<span class="token punctuation">:</span> <span class="token string">'source-map'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>出力されるソースマップが変更される。</p><h5 id="productionの上書き例"><a href="#productionの上書き例" aria-hidden="true" class="header-anchor">#</a><code>production</code>の上書き例</h5><p>以下は<code>production</code>モードで有効になる<code>optimization.minimizer</code>を上書きした例。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> UglifyJSPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'uglifyjs-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  mode<span class="token punctuation">:</span> <span class="token string">'production'</span><span class="token punctuation">,</span>
+  entry<span class="token punctuation">:</span> <span class="token string">'./src/js/app.js'</span><span class="token punctuation">,</span>
+  output<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    filename<span class="token punctuation">:</span> <span class="token string">'bundle.js'</span><span class="token punctuation">,</span>
+    path<span class="token punctuation">:</span> <span class="token string">'./public/js'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// productionモードで有効になるoptimization.minimizerを上書きする</span>
+  optimization<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    minimizer<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token keyword">new</span> <span class="token class-name">UglifyJSPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        uglifyOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          compress<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            drop_console<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>圧縮されるだけではなく、<code>console</code>も削除されたファイルが出力される。</p><h4 id="modeによって設定を切り替える"><a href="#modeによって設定を切り替える" aria-hidden="true" class="header-anchor">#</a><code>mode</code>によって設定を切り替える</h4><ul><li>「<code>production</code>モードでビルドする場合は<code>console</code>を消したいが、<code>development</code>モードでは残しておきたい。」</li><li>「<code>development</code>モードの場合のみ、ソースマップを出力したい。」</li></ul><p>などの状況で、<code>mode</code>によって設定を切り替えたい時がある。</p><p>以下のように変更すれば、<code>mode</code>によって設定を切り替えられる。</p><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// プラグインを利用するためにwebpackを読み込んでおく</span>
+<span class="token keyword">const</span> webpack <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// optimization.minimizerを上書きするために必要なプラグイン</span>
+<span class="token keyword">const</span> UglifyJSPlugin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'uglifyjs-webpack-plugin'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// output.pathに絶対パスを指定する必要があるため、pathモジュールを読み込んでおく</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token punctuation">(</span>env<span class="token punctuation">,</span> argv<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// argv.modeにはwebpackを実行したmodeが格納されている</span>
+  <span class="token comment">// 例えば webpack --mode development と実行すれば</span>
+  <span class="token comment">// argv.mode には 'development' が格納されている</span>
+  <span class="token comment">// そのためdevelopmentモードで実行したかどうかを判定できる</span>
+  <span class="token keyword">const</span> <span class="token constant">IS_DEVELOPMENT</span> <span class="token operator">=</span> argv<span class="token punctuation">.</span>mode <span class="token operator">===</span> <span class="token string">'development'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    <span class="token comment">// エントリーポイントの設定</span>
+    entry<span class="token punctuation">:</span> <span class="token string">'./src/js/app.js'</span><span class="token punctuation">,</span>
+
+    <span class="token comment">///</span>
+    <span class="token comment">/// outputなどの記述は省略</span>
+    <span class="token comment">///</span>
+
+    <span class="token comment">// developmentモードで有効になるdevtool: 'eval'を上書き</span>
+    <span class="token comment">// developmentモードでビルドした時だけソースマップを出力する</span>
+    devtool<span class="token punctuation">:</span> <span class="token constant">IS_DEVELOPMENT</span> <span class="token operator">?</span> <span class="token string">'source-map'</span> <span class="token punctuation">:</span> <span class="token string">'none'</span><span class="token punctuation">,</span>
+    <span class="token comment">// productionモードで有効になるoptimization.minimizerを上書きする</span>
+    optimization<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token comment">// developmentモードでビルドした場合</span>
+      <span class="token comment">// minimizer: [] となるため、consoleは残されたファイルが出力される</span>
+      <span class="token comment">// puroductionモードでビルドした場合</span>
+      <span class="token comment">// minimizer: [ new UglifyJSPlugin({... となるため、consoleは削除したファイルが出力される</span>
+      minimizer<span class="token punctuation">:</span> <span class="token constant">IS_DEVELOPMENT</span>
+        <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token keyword">new</span> <span class="token class-name">UglifyJSPlugin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+              uglifyOptions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                compress<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                  drop_console<span class="token punctuation">:</span> <span class="token boolean">true</span>
+                <span class="token punctuation">}</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+          <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="optimization-splitchunks"><a href="#optimization-splitchunks" aria-hidden="true" class="header-anchor">#</a><code>optimization.splitChunks</code></h3><p>webpack 3 までに存在した CommonsChunkPlugin に代わる設定項目。</p><p>※詳細は別の記事に書きましたので、こちらを参考にしてください。</p><p><a href="https://qiita.com/soarflat/items/1b5aa7163c087a91877d" target="_blank" rel="noopener noreferrer">webpack 4 から追加された optimization.splitChunks の使い方、使い所<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p><h2 id="webpack-3-から-4-への移行の注意点"><a href="#webpack-3-から-4-への移行の注意点" aria-hidden="true" class="header-anchor">#</a> webpack 3 から 4 への移行の注意点</h2><p>webpack 4 に対応していないプラグインやローダーが動かなくなる可能性があるため、移行する前にチェックをする。</p><h2 id="終わり"><a href="#終わり" aria-hidden="true" class="header-anchor">#</a> 終わり</h2><p>今後もフロントエンド開発は大規模かつ複雑になると思うのでモジュール化を考慮した開発は普段から意識しておいて損はないです。
+とは言え、いきなり自分でモジュールを開発するのも難しいと思うため、まずは外部モジュールの利用から始めてみると良いと思います。</p><p>webpack 4 の情報は現時点（2018/03/15）ではドキュメントにまとめられていないため、以下の記事に目を通すことをオススメいたします。</p><ul><li><a href="http://abouthiroppy.hatenablog.jp/entry/2017/12/25/100004" target="_blank" rel="noopener noreferrer">次のリリースである webpack 4 の主な変更点まとめ<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li><a href="http://abouthiroppy.hatenablog.jp/entry/migrate-to-webpack4" target="_blank" rel="noopener noreferrer">webpack4 への簡単なマイグレーションガイド<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li><a href="https://medium.com/webpack/webpack-4-released-today-6cdb994702d4" target="_blank" rel="noopener noreferrer">webpack 4: released today!!<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li><a href="https://medium.com/webpack/webpack-4-mode-and-optimization-5423a6bc597a" target="_blank" rel="noopener noreferrer">webpack 4: mode and optimization<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul><h3 id="parcel-に関して"><a href="#parcel-に関して" aria-hidden="true" class="header-anchor">#</a> Parcel に関して</h3><p>話題になった Parcel（モジュールバンドラ）を触りましたが、実務では引き続き webpack を利用することになりそうです。
+記事を書きましたので、興味があればこちらもどうぞ。</p><p><a href="https://qiita.com/soarflat/items/3e43368b2d767c730781" target="_blank" rel="noopener noreferrer">Parcel 入門 ～ Parcel は webpack の代わりになるのか～<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div><div class="page-edit"><!----><!----></div><div class="page-nav"><p class="inner"><span class="prev">
+        ← <a href="/qiita-articles-by-soarflat/webpack/" class="prev router-link-active">
+          webpack
+        </a></span><!----></p></div></div></div></div>
+    <script src="/qiita-articles-by-soarflat/assets/js/0.5f336dea.js" defer></script><script src="/qiita-articles-by-soarflat/assets/js/app.51bc87ed.js" defer></script>
+  </body>
+</html>
