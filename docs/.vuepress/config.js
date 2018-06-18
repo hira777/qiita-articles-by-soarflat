@@ -39,6 +39,13 @@ module.exports = {
           children: ['', 'webpack-4-tutorial'],
         },
       ],
+      '/html-css/': [
+        {
+          title: 'HTML/CSS',
+          collapsable: false,
+          children: ['', 'pug-template'],
+        },
+      ],
     },
   },
 };
