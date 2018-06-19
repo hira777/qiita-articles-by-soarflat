@@ -46,6 +46,13 @@ module.exports = {
           children: ['', 'pug-template'],
         },
       ],
+      '/other/': [
+        {
+          title: 'Other',
+          collapsable: false,
+          children: ['', 'how-to-set-path'],
+        },
+      ],
     },
   },
 };
